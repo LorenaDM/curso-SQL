@@ -1,0 +1,99 @@
+--1) Selecione somente o nome e salário dos funcionários.
+select nome, salarios 
+from funcionarios;
+
+--2) Selecione somente o nome e telefone dos funcionários.
+select nome, telefone 
+from funcionarios;
+
+--3) Selecione somente o nome, rg e cpf dos funcionários.
+select nome, rg, cpf
+from funcionarios;
+
+--4) Selecione somente o nome e a cidade dos funcionários.
+select nome, cidade
+from funcionarios;
+
+--5) Insira mais um funcionário.
+     --select * from funcionarios;
+insert into funcionarios(codigo, nome, endereço, telefone, cidade, estado, cep, rg, salarios, cpf) 
+values(4, "Lorena", "R Augusto sarto", "9999-6611", "Ribeirao", "SP", "14502879", 6666666, 4.547, 44444);
+
+--6) Exiba todos os dados dos funcionários.
+select * from funcionarios;
+
+--7) Crie a tabela fornecedores contendo os campos nome, endereço, telefone, cidade, estado, cep, cnpj
+    --e email. Coloque os tipos de dados necessários
+create table fornecedores(nome, endereco, telefone, cidade, estado, cep, cnpj, email);
+    
+--8) Insira 2 fornecedores. Código 1 e Código 2
+alter table fornecedores add codigo int;
+select * from fornecedores;
+insert into fornecedores(nome, endereco, telefone, cidade, estado, cep, cnpj, email) values("Lorena", "R. Amadeu", "3704-4040", "Franca", "SP", "14407204", "439084555", "lorena@gmail.com");
+insert into fornecedores(nome, endereco, telefone, cidade, estado, cep, cnpj, email) values("Renata", "R. Orlando", "3704-5050", "Franca", "SP", "14407202", "109099818066", "renata@gmail.com");
+select * from fornecedores;
+--9) Selecione o nome e o telefone dos fornecedores.
+select nome, telefone from fornecedores;
+
+--10) Agora iremos aprender uma opção do comando select. Nós podemos restringir o que vai ser exibido
+     --na tela. É moleza. Por exemplo se eu quiser listar somente o aluno de código 2 o comando fica assim: select *
+     --from alunos where codigo = 2; - Nós apenas adicionamos o WHERE e a CONDIÇÃO. Veja que mantivemos o *
+     --para exibir todos os campos, mas poderíamos também exibir somente o nome do aluno 2 assim: select nome
+     --from alunos where codigo = 2; - EXPERIMENTE AGORA ESSES 2 COMANDOS.
+select * from alunos where codigo = 2;
+select nome, telefone from alunos where codigo = 2;
+--11) Selecione o funcionário de código 3.
+select * from funcionarios where codigo = 3;
+
+--12) Selecione o fornecedor de código 1.
+select * from fornecedores where codigo = 1;
+--13) Selecione o aluno de código 2.
+select * from alunos where codigo = 2;
+--14) Selecione o funcionário de código 1.
+select * from funcionarios where codigo = 1;
+
+--15) Selecione somente o nome e salário do funcionário de código 2.
+select nome, salarios from funcionarios where codigo = 2;
+
+--16) Selecione somente o nome a cidade do aluno de código 1.
+select nome, cidade from alunos where codigo = 1;
+--17) Selecione todos os funcionários de MG. É assim: select * from funcionários where estado=’MG’; -
+      --Como estado é texto eu usei aspas! – Faça isso agora!
+      select * from funcionarios where estado = "MG";
+      
+--18) Selecione todos os funcionários de GO.
+select * from funcionarios where estado = "GO";
+--19) Selecione todos os funcionários de SP.
+select * from funcionarios where estado = "SP";
+
+--20) Insira um funcionário para SP.
+
+insert into funcionarios(codigo, nome, endereço, telefone, cidade, estado, cep, rg, salarios, cpf) values(5, "Renata", "Av moacir", "9999-6667", "Goiana", "GO", 14407582, 33333333, 7.888, 55555);
+select * from funcionarios;
+--21) Selecione todos os funcionários de SP.
+select * from funcionarios where estado = "SP";
+
+--22) Crie a tabela livros contendo o campo código, nome, categoria, resumo, precocusto, precovenda.
+create table livros(codigo int, nome text, categoria text, resumo text, precoCusto number, precoVenda number);
+
+--23) Verifique o esquema .schema da tabela livros.
+
+
+--24) Liste as tabelas existentes.
+
+--25) Insira 1 livro.
+insert into livros(codigo, nome, categoria, resumo, precoCusto, precoVenda) values(1 , "Percy JACKSON", "infato-juvenil", "Eu não queria dser um meio sangue", 20.50, 30.50);
+
+--26) Selecione o nome e a categoria do livro de código 1.
+select nome, categoria from livros where codigo = 1;
+
+--27) Selecione o nome e a categoria do livro de código 3.
+select nome, categoria from livros where codigo = 3;
+--28) Exclua a tabela livros.
+drop table livros;
+--29) Altere o nome da tabela aluno para estudantes.
+alter table alunos rename to estudantes;
+--30) Altere a tabela alunos inserindo o campo estado. Se estiver com dúvidas consulte a primeira lista de
+      --exercícios.
+      ALTER TABLE estudantes add estado text;
+select * from estudantes;
